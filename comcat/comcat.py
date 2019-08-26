@@ -1,4 +1,4 @@
-#Comcat project from Mehmet KIZILTAS (Copyright)
+#Comcat project from Mehmet KIZILTAS 
 import socket
 import sys
 import smtplib
