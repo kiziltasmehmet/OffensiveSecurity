@@ -1,10 +1,16 @@
-#Comcat project from Mehmet KIZILTAS 
+#Comcat project Mehmet KIZILTAS
 import socket
 import sys
 import smtplib
 from os import system
 import time
 import os
+def help():
+    print("Usage: comcat.py [options]\n")
+    print("                              => options <=\n")
+    print("-h, -H, -P    Host ip address and check to port (e.g. comcat.py -H 192.168.1.1 -P 80 or comcat.py -H 192.168.1.1)")
+    print("-M, -P        Target mail address and password file path (e.g. comcat.py -M target@gmail.com -P root\Desktop\pass.txt)\n")
+    
 def banner():
     print ("\n")
     print ("*******                                                 ")
@@ -135,5 +141,7 @@ if len(sys.argv) > 1:
             print("Check argüments")
         
 else:
-    print ("\nPlease make sure you entered the parameters correctly")
+    banner()
+    print ("\nError: Please make sure you entered the parameters correctly!\n")
+    help()
     os.system("pause")
