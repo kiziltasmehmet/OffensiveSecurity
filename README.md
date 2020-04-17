@@ -1,5 +1,3 @@
-(offensive)test-tool-1
-
 (EN)
 This program is a test tool coded with the python programming language.
 The program can find open ports on the target system and makes brute-force password attacks on mail (gmail) accounts.
