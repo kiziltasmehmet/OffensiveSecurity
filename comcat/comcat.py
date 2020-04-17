@@ -1,8 +1,8 @@
-#comcat project by Mehmet KIZILTAS
+#                                   comcat project by Mehmet KIZILTAS
 
-#LEGAL DISCLAIMER: 
-#Usage of this program for attacking targets without prior mutual consent is illegal. 
-#Developer assume no liability and are not responsible for any misuse or damage caused by this program.
+#                                          LEGAL DISCLAIMER 
+#       Usage of this program for attacking targets without prior mutual consent is illegal. 
+#       Developer assume no liability and are not responsible for any misuse or damage caused by this program.
 
 import socket
 import sys
