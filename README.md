@@ -1,4 +1,4 @@
-#(offensive)test-tool-1
+(offensive)test-tool-1
 
 (EN)
 This program is a test tool coded with the python programming language.
