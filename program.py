@@ -17,15 +17,10 @@ def help():
     
 def banner():
     print ("\n")
-    print ("*******                                                 ")
-    print ("*                                                       ")
-    print ("*                                                       ")
-    print ("*           *******   ********* ******* *******    *    ")
-    print ("*          *       *  *   *   * *             *    *    ")
-    print ("*          *       *  *   *   * *             *    *    ")
-    print ("*          *       *  *   *   * *       ******* ********* ")
-    print ("*          *       *  *   *   * *       *     *    *    ")
-    print (" *******    *******   *   *   * ******* *******    *******")
+    print ("LEGAL DISCLAIMER\n")
+    print("Usage of this program for attacking targets without prior mutual consent is illegal.\n") 
+    print("Developer assume no liability and are not responsible for any misuse or damage caused by this program.")
+     
 
 if len(sys.argv) > 1:
     if len(sys.argv) == 3:
