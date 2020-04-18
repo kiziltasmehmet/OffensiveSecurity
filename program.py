@@ -10,14 +10,14 @@ import time
 import os
 
 def help():
-    print("Usage: comcat.py [options]\n")
+    print("Usage: program.py [options]\n")
     print("                              => options <=\n")
-    print("-h, -H, -P    Host ip address and check to port (e.g. comcat.py -H 192.168.1.1 -P 80 or comcat.py -H 192.168.1.1)")
-    print("-M, -P        Target mail address and password file path (e.g. comcat.py -M target@gmail.com -P root\Desktop\pass.txt)\n")
+    print("-h, -H, -P    Host ip address and check to port (e.g. program.py -H 192.168.1.1 -P 80 or program.py -H 192.168.1.1)")
+    print("-M, -P        Target mail address and password file path (e.g. program.py -M target@gmail.com -P root\Desktop\pass.txt)\n")
     
 def banner():
     print ("\n")
-    print ("LEGAL DISCLAIMER\n")
+    print ("\t\tLEGAL DISCLAIMER\n")
     print("Usage of this program for attacking targets without prior mutual consent is illegal.\n") 
     print("Developer assume no liability and are not responsible for any misuse or damage caused by this program.")
      
@@ -141,6 +141,6 @@ if len(sys.argv) > 1:
         
 else:
     banner()
-    print ("\nError: Please make sure you entered the parameters correctly!\n")
+    print ("\nerror: please make sure you entered the parameters correctly!\n")
     help()
     os.system("pause")
