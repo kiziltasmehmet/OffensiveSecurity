@@ -11,13 +11,12 @@ import os
 
 def help():
     print("Usage: program.py [options]\n")
-    print("                              => options <=\n")
+    print("Options:\n")
     print("-h, -H, -P    Host ip address and check to port (e.g. program.py -H 192.168.1.1 -P 80 or program.py -H 192.168.1.1)")
     print("-M, -P        Target mail address and password file path (e.g. program.py -M target@gmail.com -P root\Desktop\pass.txt)\n")
     
 def banner():
-    print ("\n")
-    print ("\t\tLEGAL DISCLAIMER\n")
+    print ("\t\t\tLEGAL DISCLAIMER\n")
     print("Usage of this program for attacking targets without prior mutual consent is illegal.\n") 
     print("Developer assume no liability and are not responsible for any misuse or damage caused by this program.")
      
